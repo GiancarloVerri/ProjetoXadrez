@@ -1,4 +1,4 @@
-namespace Projeto_Xadrez.Tabuleiro.Enums
+namespace Projeto_Xadrez.tabuleiro.Enums
 {
     enum Cor : int
     {

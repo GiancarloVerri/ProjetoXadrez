@@ -1,6 +1,6 @@
-using Projeto_Xadrez.Tabuleiro.Enums;
+using Projeto_Xadrez.tabuleiro.Enums;
 
-namespace Projeto_Xadrez.Tabuleiro
+namespace Projeto_Xadrez.tabuleiro
 {
     class Peca
     {

@@ -1,4 +1,4 @@
-namespace Projeto_Xadrez.Tabuleiro
+namespace Projeto_Xadrez.tabuleiro
 {
     class Tabuleiro
     {
@@ -11,6 +11,11 @@ namespace Projeto_Xadrez.Tabuleiro
             Linhas = linhas;
             Colunas = colunas;
             Pecas = new Peca[linhas, colunas];
+        }
+
+        public Peca Peca(int linha, int coluna)
+        {
+            return Pecas[linha, coluna];
         }
     }
 }
