@@ -9,21 +9,11 @@ namespace Projeto_Xadrez
     {
         static void Main(string[] args)
         {
-            try
-            {
-                Tabuleiro tab = new Tabuleiro(8, 8);
+           PosicaoXadrez pos = new PosicaoXadrez('c', 7);
 
-                tab.ColocarPeca(new Torre(tabuleiro.Enums.Cor.Black, tab), new Posicao(0, 0));
-                tab.ColocarPeca(new Torre(tabuleiro.Enums.Cor.Black, tab), new Posicao(1, 3));
-                tab.ColocarPeca(new Rei(tabuleiro.Enums.Cor.Black, tab), new Posicao(2, 4));
-
-                Tela.imprimirTabuleiro(tab);
-            }
-
-            catch (TabuleiroExeception e)
-            {
-                System.Console.WriteLine(e.Message);
-            }
+           System.Console.WriteLine(pos);
+           System.Console.WriteLine(pos.ToPosicao());
+           
 
         }
     }
