@@ -11,16 +11,21 @@ namespace Projeto_Xadrez
         {
             try
             {
-                Tabuleiro tab = new Tabuleiro(8, 8);
+                PartidaDeXadrez partida = new PartidaDeXadrez();
 
-                tab.ColocarPeca(new Torre(Projeto_Xadrez.tabuleiro.Enums.Cor.Black, tab), new Posicao(0, 0));
-                tab.ColocarPeca(new Torre(Projeto_Xadrez.tabuleiro.Enums.Cor.Black, tab), new Posicao(1, 3));
-                tab.ColocarPeca(new Rei(Projeto_Xadrez.tabuleiro.Enums.Cor.Black, tab), new Posicao(0, 2));
+                while (!partida.Terminada)
+                {
+                    Console.Clear();
+                    Tela.imprimirTabuleiro(partida.Tabuleiro);
 
-                tab.ColocarPeca(new Rei(Projeto_Xadrez.tabuleiro.Enums.Cor.White, tab), new Posicao(2, 3));
-                tab.ColocarPeca(new Torre(Projeto_Xadrez.tabuleiro.Enums.Cor.White, tab), new Posicao(3, 3));
+                    System.Console.WriteLine();
+                    System.Console.Write("Origem: ");
+                    Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
+                    System.Console.Write("Destino: ");
+                    Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
 
-                Tela.imprimirTabuleiro(tab);
+                    partida.ExecutaMovimento(origem, destino);
+                }
             }
 
             catch (TabuleiroExeception e)
