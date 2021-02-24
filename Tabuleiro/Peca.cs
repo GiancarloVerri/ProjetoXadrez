@@ -2,7 +2,7 @@ using Projeto_Xadrez.tabuleiro.Enums;
 
 namespace Projeto_Xadrez.tabuleiro
 {
-    class Peca
+    abstract class Peca
     {
         public Posicao Posicao { get; set; }
         public Cor Cor { get; protected set; }
@@ -17,6 +17,8 @@ namespace Projeto_Xadrez.tabuleiro
             QtdMovimentos = 0;
             Tabuleiro = tabuleiro;
         }
+
+        public abstract bool[,] MovimentosPossiveis();
 
         public void IncrementarQtdMovimentos()
         {
