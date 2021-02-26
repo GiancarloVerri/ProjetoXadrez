@@ -17,13 +17,9 @@ namespace Projeto_Xadrez
                 {
                     try
                     {
-                        Console.Clear();
-                        Tela.imprimirTabuleiro(partida.Tabuleiro);
-                        System.Console.WriteLine();
+                        System.Console.Clear();
 
-                        System.Console.WriteLine("Turno: " + partida.Turno);
-                        System.Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
-
+                        Tela.ImprimirPartida(partida);
                         System.Console.WriteLine();
                         System.Console.Write("Origem: ");
                         Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
@@ -50,6 +46,10 @@ namespace Projeto_Xadrez
             }
 
             catch (TabuleiroExeception e)
+            {
+                System.Console.WriteLine(e.Message);
+            }
+            catch (System.IO.IOException e)
             {
                 System.Console.WriteLine(e.Message);
             }

@@ -1,10 +1,43 @@
 using Projeto_Xadrez.tabuleiro;
 using System;
 using Projeto_Xadrez.Xadrez;
+using System.Collections.Generic;
 namespace Projeto_Xadrez
 {
     class Tela
     {
+
+        public static void ImprimirPartida(PartidaDeXadrez partida)
+        {
+            Tela.imprimirTabuleiro(partida.Tabuleiro);
+            System.Console.WriteLine();
+            ImprimirPecasCapturadas(partida);
+            System.Console.WriteLine();
+            System.Console.WriteLine("Turno: " + partida.Turno);
+            System.Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
+        }
+
+        public static void ImprimirPecasCapturadas(PartidaDeXadrez partida)
+        {
+            System.Console.WriteLine("Peças capturadas: ");
+            System.Console.Write("Brancas: ");
+            ImprimirConjunto(partida.PecasCapturadas(tabuleiro.Enums.Cor.White));
+            System.Console.WriteLine();
+            System.Console.Write("Pretas: ");
+            ImprimirConjunto(partida.PecasCapturadas(tabuleiro.Enums.Cor.Black));
+            System.Console.WriteLine();
+
+        }
+
+        public static void ImprimirConjunto(HashSet<Peca> conjunto)
+        {
+            System.Console.Write("[");
+            foreach (Peca peca in conjunto)
+            {
+                System.Console.Write(peca + " ");
+            }
+            System.Console.Write("]");
+        }
         public static void imprimirTabuleiro(Tabuleiro tab)
         {
             for (int i = 0; i < tab.Linhas; i++)
@@ -77,7 +110,7 @@ namespace Projeto_Xadrez
                     Console.Write(peca);
                     Console.ForegroundColor = aux;
                 }
-                System.Console.WriteLine(" ");
+                System.Console.Write(" ");
             }
         }
     }
